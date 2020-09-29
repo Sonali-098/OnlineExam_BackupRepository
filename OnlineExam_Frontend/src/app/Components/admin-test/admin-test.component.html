@@ -1,0 +1,95 @@
+<div class="main">
+    <mat-toolbar color="primary" class="navbar">
+        <div style="font-family:'Ubuntu';font-weight:bolder;letter-spacing:1px;font-size:25px;padding-left:25px;"><i class="fa fa-graduation-cap" aria-hidden="true"></i>&nbsp;LTIeQ</div>
+        <div>
+            <span class="logout"><a (click)="logout()" >Logout&nbsp;&nbsp;<i class="fa fa-sign-out" aria-hidden="true" ></i></a></span>
+        </div>
+    </mat-toolbar>
+    <div class="container addRemoveTest" style="padding-top:10px;">
+        <table class="table table-borderless">
+            <tr>
+                <td align="center">
+                    <button class="btn btn-style" (click)="addQuestions = true" (click)="removeQuestions=false">
+                        Add Questions
+                    </button>
+                </td>
+                <td align="center">
+                    <button class="btn btn-style" (click)="removeQuestions = true" (click)="addQuestions=false">
+                        Remove Questions
+                    </button>
+                </td>
+            </tr>
+        </table>
+    
+    
+        <table class="table table-borderless" *ngIf = "addQuestions == true && removeQuestions==false" >
+            <tr>
+                <td align="center" style="font-family:'Ubuntu';font-weight:bolder;font-size:15px;letter-spacing:1px;padding-top:20px;">
+                Choose Subject 
+                </td>
+                <td align="center">
+                    <select name="subjects" [(ngModel)]="selectedValue" class="custom-select" style="width:150px;">
+                    <option value="Java">Java</option>
+                    <option value="Sql">SQL</option>
+                    <option value="php">PHP</option>
+                    <option value="C/C++">C/C++</option>
+                    <option value="Python">Python</option>
+                    <option value="C#/.Net">C#/.Net</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td align="center" style="font-family:'Ubuntu';font-weight:bolder;font-size:15px;letter-spacing:1px;padding-top:20px;">
+                    Browse File
+                </td>
+                <td align="center">
+                    <input type="file" class="btn btn-style" [(ngModel)]="selectedFile" (change)="showSelected()"/>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"  align="center">
+                    <button (click)="addExcelFile()" class="btn btn-style">
+                        Add File
+                    </button>
+                </td>
+            </tr>
+        </table>
+   
+
+    <table *ngIf = "removeQuestions == true && addQuestions==false" class="table table-borderless">
+        <tr>
+            <td align="center" style="font-family:'Ubuntu';font-weight:bolder;font-size:15px;letter-spacing:1px;padding-top:20px;">
+                Choose Subject
+            </td>
+            <td align="center">
+                <select name="subjects" [(ngModel)]="selectedValue" class="custom-select" style="width:150px;" (change)="getAllSets()">
+                    <option value="Java">Java</option>
+                    <option value="Sql">SQL</option>
+                    <option value="php">PHP</option>
+                    <option value="C/C++">C/C++</option>
+                    <option value="Python">Python</option>
+                    <option value="C#/.Net">C#/.Net</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td align="center" style="font-family:'Ubuntu';font-weight:bolder;font-size:15px;letter-spacing:1px;padding-top:20px;">
+                Available Sets 
+            </td>
+            <td align="center">
+                <select name="subjects" [(ngModel)]="selectedSet" class="custom-select" style="width:150px;" >
+                    <option *ngFor="let c of allSets" [ngValue]="c">{{c}}</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td align="center" colspan="2">
+                <button class="btn btn-style" (click)="deleteExcelFile()">
+                    Delete Test
+                </button>
+            </td>
+        </tr>
+    </table>
+    </div>
+    <footer class="footer" style="font-family:'Ubuntu';letter-spacing:1px;">Made with  <i class="fa fa-heart" aria-hidden="true" style="color:red"></i>  by team LTIeQ</footer>
+</div>

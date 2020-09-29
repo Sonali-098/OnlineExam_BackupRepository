@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c672bc20545c4f45bb8323ce8fe84c4f" Name="Diagram1">
+        <EntityTypeShape EntityType="OnlineExamModel.Admin" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineExamModel.c_cplus_Sets" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineExamModel.Csharp_Dotnet_Sets" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineExamModel.Exam_List" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineExamModel.Java_Sets" Width="1.5" PointX="3" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineExamModel.php_Sets" Width="1.5" PointX="3" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineExamModel.Python_Sets" Width="1.5" PointX="3" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineExamModel.Report" Width="1.5" PointX="6" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineExamModel.Sql_Sets" Width="1.5" PointX="3" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineExamModel.User" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="OnlineExamModel.Exam_ID4" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineExamModel.Exam_ID6" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineExamModel.Exam_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineExamModel.Exam_ID1" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineExamModel.Exam_ID2" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineExamModel.Exam_ID3" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineExamModel.Exam_ID5" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineExamModel.User_ID" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

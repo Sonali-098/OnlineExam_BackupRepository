@@ -1,0 +1,192 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/* :root {
+    --body_gradient_left:#3931af;
+    --body_gradient_right: #00c6ff;
+    --form_bg: #ffffff;
+    --input_bg: #E5E5E5;
+    --input_hover:#eaeaea;
+    --submit_bg: #0062cc;
+    --submit_hover: #2379d5;
+    --icon_color:#6b6b6b;
+} */
+.main{
+    font-family: 'Ubuntu', sans-serif;
+    /* font-family: 'Ubuntu Condensed', sans-serif; */
+    height:100vh;
+    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+    display:flex;
+}
+#form_wrapper {
+    width: 800px;
+    height: 450px;
+    margin:auto;
+    background-color:#ffffff;
+    border-radius: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 5vw;
+    padding: 5vh 15px;
+}
+#form_left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#form_left img {
+    width: 200px;
+    height: 200px;
+}
+#form_right {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+    padding: 10% 5%;
+}
+.input_container {
+    background-color: #E5E5E5;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    margin-bottom:15px;
+}
+
+.input_container:hover {
+    background-color: #eaeaea;
+}
+
+.input_container,#input_submit {
+    height: 40px;
+    border-radius: 30px;
+    width: 100%;
+}
+
+.input_field {
+    /* customize the input tag with lighter font and some padding*/
+    color: #6b6b6b;
+    background-color: inherit;
+    width: 90%;
+    border: none;
+    font-size: 1rem;
+    font-weight: 400;
+    padding-left: 30px;
+}
+
+.input_field:hover,.input_field:focus {
+    /* remove the outline */
+    outline: none;
+}
+
+#input_submit {
+    /* submit button has a different color and different padding */
+    background-color: #0062cc;
+    padding-left: 0;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+}
+
+#input_submit:hover {
+    background-color:#2379d5 ;
+    /* simple color transition on hover */
+    transition: background-color,1s;
+    cursor: pointer;
+}
+
+h1,span {
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bolder;
+    color:#0062cc;
+}
+
+/* shift it a bit lower */
+#create_account {
+    display: block;
+    position: relative;
+    top: 30px;
+}
+#reset_password{
+    display: block;
+    position: relative;
+    top: 30px;
+}
+a {
+    /* remove default underline */
+    text-decoration: none;
+    color:  #0062cc;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #2379d5;
+}
+
+i {
+    color: #6b6b6b;
+}
+
+@media screen and (max-width:768px) {
+    #form_wrapper {
+        grid-template-columns: 1fr;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    #form_left {
+        display: none;
+    }
+}
+
+.switch-field {
+	display: flex;
+	margin-bottom: 36px;
+	overflow: hidden;
+}
+
+.switch-field input {
+	position: absolute !important;
+	clip: rect(0, 0, 0, 0);
+	height: 1px;
+	width: 1px;
+	border: 0;
+	overflow: hidden;
+}
+
+.switch-field label {
+	background-color: #c0bfbf;
+	color: #fff;
+    font-size: 14px;
+    font-weight:bolder;
+	line-height: 1;
+    text-align: center;
+	padding: 8px 16px;
+    margin-right: -1px;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+	transition: all 0.1s ease-in-out;
+}
+
+.switch-field label:hover {
+	cursor: pointer;
+}
+
+.switch-field input:checked + label {
+	background-color: #2379d5;
+	box-shadow: none;
+}
+
+.switch-field label:first-of-type {
+	border-radius: 30px 0 0 30px;
+}
+
+.switch-field label:last-of-type {
+	border-radius: 0 30px 30px 0;
+}
+.center_radio{
+    display:flex;
+    padding-left:25%;
+}

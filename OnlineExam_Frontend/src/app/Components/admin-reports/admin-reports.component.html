@@ -1,0 +1,144 @@
+<div class="main">
+<mat-toolbar color="primary" class="navbar">
+    <div style="font-family:'Ubuntu';font-weight:bolder;letter-spacing:1px;font-size:25px;padding-left:25px;"><i class="fa fa-graduation-cap" aria-hidden="true"></i>&nbsp;LTIeQ</div>
+    <div>
+        <span class="logout"><a (click)="logout()" >Logout&nbsp;&nbsp;<i class="fa fa-sign-out" aria-hidden="true" ></i></a></span>
+    </div>
+</mat-toolbar>
+<div class="btn-div">
+    <button class="btn btn-style" data-toggle="modal" data-target="#filterForm">Search Filters</button>
+</div>
+
+<div class="container userTable" *ngIf="userDataReceived==true">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Email-ID</th>
+                <th>Contact Number</th>
+                <th>City</th>
+                <th>State</th>
+                <th>View Reports</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let i of allUserData">
+                <td>{{i.full_name}}</td>
+                <td>{{i.email_id}}</td>
+                <td>{{i.mobile}}</td>
+                <td>{{i.city}}</td>
+                <td>{{i.state}}</td>
+                <td class="viewReportIcon"><a (click)="getParticularReport(i.user_id,i.full_name)"><i class="fa fa-file-text-o" aria-hidden="true" style="font-size:25px;"></i></a></td>
+            </tr>
+        </tbody>
+    </table>    
+</div>
+<div class="container userTable" *ngIf="filterBasedTable==true">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Email-ID</th>
+                <th>Contact Number</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Score Level 1</th>
+                <th>Score Level 2</th>
+                <th>Score Level 3</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let i of searchBasedList">
+                <td>{{i.full_name}}</td>
+                <td>{{i.email_id}}</td>
+                <td>{{i.mobile}}</td>
+                <td>{{i.city}}</td>
+                <td>{{i.state}}</td>
+                <td>{{i.Score1}}</td>
+                <td>{{i.Score2}}</td>
+                <td>{{i.Score3}}</td>
+            </tr>
+        </tbody>
+    </table>    
+</div>
+
+<div class="modal fade" id="filterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header text-center" style="background-color: #3F51B5;">
+            <h4 class="modal-title" style="font-family:'Ubuntu';color:white;font-weight:bolder;padding-top:10px;font-size:25px;">Filter Based Search</h4>
+            <a type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true" style="color:white;">&times;</span>
+            </a>
+          </div>
+          <div class="modal-body">
+            <table class="table">
+                <tr>
+                    <td>
+                        Select Technology
+                    </td>
+                    <td>
+                        <select class="form-control" [(ngModel)]="selectedTech">
+                            <option *ngFor="let val of subjectList" value="{{val}}">{{val}}</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Select City
+                    </td>
+                    <td>
+                        <select class="form-control" [(ngModel)]="selectedCity" >
+                            <option *ngFor="let val of allCityList" value="{{val}}">{{val}}</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Select State
+                    </td>
+                    <td>
+                        <select class="form-control" [(ngModel)]="selectedState" >
+                            <option *ngFor="let val of allStateList" value="{{val}}">{{val}}</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Level Wise Selection
+                    </td>
+                    <td>
+                        <select class="form-control" [(ngModel)]="selectedLevel" (change)="levelSelected()">
+                            <option *ngFor="let val of level" value="{{val}}">{{val}}</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div *ngIf="L12Level==true" style="color:red;">* Marks should be less than or Equal to 40.</div> 
+                        <div *ngIf="L3Level==true" style="color:red;">* Marks should be less than or Equal to 20.</div> 
+                        <div *ngIf="L123Level==true" style="color:red;">* Marks should be less than or Equal to 100.</div> 
+                        <div *ngIf="L1L2Level==true" style="color:red;">* Marks should be less than or Equal to 80.</div> 
+                        <div *ngIf="L2L3Level==true" style="color:red;">* Marks should be less than or Equal to 60.</div> 
+                        <div *ngIf="L1L3Level==true" style="color:red;">* Marks should be less than or Equal to 60.</div> 
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Enter Marks
+                    </td>
+                    <td>
+                        <input type="number" min="0" max={{max}} class="form-control" [(ngModel)]="marksEntered" validate/>
+                    </td>
+                </tr>
+            </table>
+          </div>
+          <div class="modal-footer d-flex justify-content-center">
+            <button type="submit" (click)="filterSearch()" (click)="displaySearchTable()" class="btn btn-style" data-dismiss="modal">Search</button>
+          </div>
+        </div>
+      </div>
+</div>
+
+<footer class="footer" style="font-family:'Ubuntu';letter-spacing:1px;">Made with  <i class="fa fa-heart" aria-hidden="true" style="color:red"></i>  by team LTIeQ</footer>
+</div>

@@ -1,0 +1,71 @@
+<!-- <div class="container">
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <div>
+        <input id="student" type="radio" value="student" name="loginAs" formControlName="loginAs">
+        <label for="student">Student Login</label>
+     </div>
+  
+     <div>
+        <input id="admin" type="radio" value="admin" name="loginAs" formControlName="loginAs">
+        <label for="admin">Admin Login</label>
+     </div>
+
+     <div class="md-form mb-5">
+        <input type="email" id="email" class="form-control validate white-text" formControlName="email">
+        <label for="email">Email</label>
+      </div>
+
+      <div class="md-form pb-3">
+        <input type="password" id="password" class="form-control validate white-text" formControlName="password">
+        <label data-error="wrong" data-success="right" for="password">Password</label> 
+      </div>
+      
+      <div class="text-center mb-3 col-md-12">
+        <button type="submit" class="btn btn-success btn-block btn-rounded z-depth-1">Login</button>
+      </div>
+      <a class="btn btn-warning" [routerLink]="['forgotPassword']">Forgot Password</a>
+      </form> 
+</div> -->
+<div class="main">
+  <div id="form_wrapper">
+    <div id="form_left">
+      <img src="/assets/images/icon.png" alt="stu_cap_icon">
+    </div>
+    <div id="form_right">
+      <h1>Welcome To LTIeQ</h1>
+      <form [formGroup]="loginForm" (ngSubmit)="login()" class="was-validated">
+        <div class="center_radio">
+          <div class="switch-field">
+            <input id="student1" type="radio" value="student" name="loginAs" checked formControlName="loginAs"/>
+            <label for="student1">Student</label>
+            <input id="admin1" type="radio" value="admin" name="loginAs" formControlName="loginAs" />
+            <label for="admin1">Admin</label>
+          </div>
+        </div>
+        <div class="input_container form-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" id="email" class="input_field form-control" placeholder="email@example.com" formControlName="email" [ngClass]="{ 'is-invalid': submitCheck && formAccess.email.errors}">
+          <div *ngIf="submitCheck && formAccess.email.errors" class="invalid-feedback">
+            <div *ngIf="formAccess.email.errors.required">Email is required *</div>
+            <div *ngIf="formAccess.email.errors.email">Email-ID Invalid</div>
+          </div>
+        </div>
+       
+        <div class="input_container">
+          <i class="fas fa-lock"></i>
+          <input type="password" id="password" class="input_field form-control" placeholder="Password" formControlName="password" [ngClass]="{ 'is-invalid': submitCheck && formAccess.password.errors }">
+          <div *ngIf="submitCheck && formAccess.password.errors" class="invalid-feedback">
+            <div *ngIf="formAccess.password.errors.required">Password is required *</div>
+            <div *ngIf="formAccess.password.errors.minlength">Length should be greater than 6 characters</div>
+          </div>
+        </div>
+        <input type="submit" id="input_submit" value="Login" class="input_field">
+        <span id='reset_password'><a [routerLink]="['forgotPassword']">Forgot Password ?</a></span>
+        <span id='create_account'>
+          <a [routerLink]="['register']">Create your account ➡ </a>
+        </span>
+      </form>
+    </div>
+  </div>
+</div> 
+

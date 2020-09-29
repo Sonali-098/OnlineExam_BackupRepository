@@ -1,0 +1,82 @@
+<div class="main">
+    <mat-toolbar color="primary" class="navbar">
+        <div style="font-family:'Ubuntu';font-weight:bolder;letter-spacing:1px;font-size:25px;padding-left:25px;"><i class="fa fa-graduation-cap" aria-hidden="true"></i>&nbsp;LTIeQ</div>
+        <div>
+            <span class="logout"><a (click)="logout()" >Logout&nbsp;&nbsp;<i class="fa fa-sign-out" aria-hidden="true" ></i></a></span>
+        </div>
+    </mat-toolbar>
+
+    <div class="btn-div">
+        <span style="font-family:'Ubuntu';font-weight:bolder;font-size:15px;padding-left:20px;">Candidate Name: {{userName}}</span>
+        <div style="float:right;">
+            <button class="btn btn-style" (click)="allUser()">View All Reports</button>
+        </div>
+    </div>
+    <div class="container userTable" *ngIf="detailsRendered==true">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Exam Name</th>
+                    <th>Level 1</th>
+                    <th>Level 2</th>
+                    <th>level 3</th>
+                    <th>Total Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let j of details">
+                    <td>{{j.exam_name}}</td>
+                    <td>{{j.level1_score}}</td>
+                    <td>{{j.level2_score}}</td>
+                    <td>{{j.level3_score}}</td>
+                    <td>{{(j.level1_score)+(j.level2_score)+(j.level3_score)}}</td>
+                </tr>   
+            </tbody>
+        </table>    
+    </div>
+    <div class="container" *ngIf="detailsRendered==true">
+        <table class="table">
+            <tr>
+                <td>
+                    <google-chart #chart
+                        [title]="'Column Score Analysis'"
+                        [type]="'ColumnChart'"
+                        [data]="data"
+                        [columns]="['Subject','L1', 'L2','L3']"
+                        [width]="550"
+                        [height]="400">
+                    </google-chart>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <google-chart #chart
+                        [title]="'Subject Marks Distribution'"
+                        [type]="'PieChart'"
+                        [data]="dataPieChart"
+                        [columns]="['Subject','Total Score']"
+                        [width]="550"
+                        [height]="400">
+                    </google-chart>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <google-chart #chart
+                        [title]="'Average Distribution'"
+                        [type]="'PieChart'"
+                        [data]="dataDonutChart"
+                        [columns]="['Average','Percent']"
+                        [options] = "{pieHole:0.6}"
+                        [width]="550"
+                        [height]="400">
+                    </google-chart>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div *ngIf="detailsRendered==true" class="btn-div-download">
+        <button class="btn btn-style" (click)="print()">Download Reports</button>
+    </div>
+    <footer class="footer" style="font-family:'Ubuntu';letter-spacing:1px;">Made with  <i class="fa fa-heart" aria-hidden="true" style="color:red"></i>  by team LTIeQ</footer>
+</div>

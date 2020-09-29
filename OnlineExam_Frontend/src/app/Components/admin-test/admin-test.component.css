@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+  }
+
+.navbar{
+    justify-content:space-between;
+    position: sticky;
+    position: -webkit-sticky; /* For macOS/iOS Safari */
+    top: 0; /* Sets the sticky toolbar to be on top */
+    z-index: 1000;
+}
+.footer{
+    position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color:black;
+   color: white;
+   text-align: center;
+   padding:20px;
+}
+.logout{
+    font-family:'Ubuntu';
+    font-weight:bolder;
+    padding-right:20px;
+}
+.logout:hover{
+    transform:scale(1.5);
+}
+.btn-style{
+    background-color:#3F51B5;
+    color:white;
+    font-family:'Ubuntu';
+    font-weight: bolder;
+    border-color: #3F51B5;
+}
+.btn-style:hover{
+    background-color: white;
+    color:#3F51B5;
+    font-weight: bolder;
+}

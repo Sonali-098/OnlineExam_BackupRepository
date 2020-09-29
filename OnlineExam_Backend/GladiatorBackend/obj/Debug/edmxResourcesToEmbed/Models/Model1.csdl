@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OnlineExamModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="admin_id" />
+    </Key>
+    <Property Name="admin_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="full_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="email_id" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="c_cplus_Sets">
+    <Key>
+      <PropertyRef Name="table_name" />
+    </Key>
+    <Property Name="table_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="exam_id" Type="Int32" />
+    <NavigationProperty Name="Exam_List" Relationship="Self.Exam_ID4" FromRole="c_cplus_Sets" ToRole="Exam_List" />
+  </EntityType>
+  <EntityType Name="Csharp_Dotnet_Sets">
+    <Key>
+      <PropertyRef Name="table_name" />
+    </Key>
+    <Property Name="table_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="exam_id" Type="Int32" />
+    <NavigationProperty Name="Exam_List" Relationship="Self.Exam_ID6" FromRole="Csharp_Dotnet_Sets" ToRole="Exam_List" />
+  </EntityType>
+  <EntityType Name="Exam_List">
+    <Key>
+      <PropertyRef Name="exam_id" />
+    </Key>
+    <Property Name="exam_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="exam_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="exam_set_counts" Type="Int32" Nullable="false" />
+    <Property Name="total_marks" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="c_cplus_Sets" Relationship="Self.Exam_ID4" FromRole="Exam_List" ToRole="c_cplus_Sets" />
+    <NavigationProperty Name="Csharp_Dotnet_Sets" Relationship="Self.Exam_ID6" FromRole="Exam_List" ToRole="Csharp_Dotnet_Sets" />
+    <NavigationProperty Name="Reports" Relationship="Self.Exam_ID" FromRole="Exam_List" ToRole="Reports" />
+    <NavigationProperty Name="Java_Sets" Relationship="Self.Exam_ID1" FromRole="Exam_List" ToRole="Java_Sets" />
+    <NavigationProperty Name="Sql_Sets" Relationship="Self.Exam_ID2" FromRole="Exam_List" ToRole="Sql_Sets" />
+    <NavigationProperty Name="php_Sets" Relationship="Self.Exam_ID3" FromRole="Exam_List" ToRole="php_Sets" />
+    <NavigationProperty Name="Python_Sets" Relationship="Self.Exam_ID5" FromRole="Exam_List" ToRole="Python_Sets" />
+  </EntityType>
+  <EntityType Name="Java_Sets">
+    <Key>
+      <PropertyRef Name="table_name" />
+    </Key>
+    <Property Name="table_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="exam_id" Type="Int32" />
+    <NavigationProperty Name="Exam_List" Relationship="Self.Exam_ID1" FromRole="Java_Sets" ToRole="Exam_List" />
+  </EntityType>
+  <EntityType Name="php_Sets">
+    <Key>
+      <PropertyRef Name="table_name" />
+    </Key>
+    <Property Name="table_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="exam_id" Type="Int32" />
+    <NavigationProperty Name="Exam_List" Relationship="Self.Exam_ID3" FromRole="php_Sets" ToRole="Exam_List" />
+  </EntityType>
+  <EntityType Name="Python_Sets">
+    <Key>
+      <PropertyRef Name="table_name" />
+    </Key>
+    <Property Name="table_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="exam_id" Type="Int32" />
+    <NavigationProperty Name="Exam_List" Relationship="Self.Exam_ID5" FromRole="Python_Sets" ToRole="Exam_List" />
+  </EntityType>
+  <EntityType Name="Report">
+    <Key>
+      <PropertyRef Name="report_id" />
+    </Key>
+    <Property Name="report_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="Int32" />
+    <Property Name="exam_id" Type="Int32" />
+    <Property Name="exam_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="level1_score" Type="Int32" Nullable="false" />
+    <Property Name="level2_score" Type="Int32" Nullable="false" />
+    <Property Name="level3_score" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Exam_List" Relationship="Self.Exam_ID" FromRole="Reports" ToRole="Exam_List" />
+    <NavigationProperty Name="User" Relationship="Self.User_ID" FromRole="Reports" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Sql_Sets">
+    <Key>
+      <PropertyRef Name="table_name" />
+    </Key>
+    <Property Name="table_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="exam_id" Type="Int32" />
+    <NavigationProperty Name="Exam_List" Relationship="Self.Exam_ID2" FromRole="Sql_Sets" ToRole="Exam_List" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="full_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="mobile" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="email_id" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="city" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="dob" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="state" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="qualification" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="yoc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Reports" Relationship="Self.User_ID" FromRole="Users" ToRole="Reports" />
+  </EntityType>
+  <Association Name="Exam_ID4">
+    <End Role="Exam_List" Type="Self.Exam_List" Multiplicity="0..1" />
+    <End Role="c_cplus_Sets" Type="Self.c_cplus_Sets" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Exam_List">
+        <PropertyRef Name="exam_id" />
+      </Principal>
+      <Dependent Role="c_cplus_Sets">
+        <PropertyRef Name="exam_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Exam_ID6">
+    <End Role="Exam_List" Type="Self.Exam_List" Multiplicity="0..1" />
+    <End Role="Csharp_Dotnet_Sets" Type="Self.Csharp_Dotnet_Sets" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Exam_List">
+        <PropertyRef Name="exam_id" />
+      </Principal>
+      <Dependent Role="Csharp_Dotnet_Sets">
+        <PropertyRef Name="exam_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Exam_ID">
+    <End Role="Exam_List" Type="Self.Exam_List" Multiplicity="0..1" />
+    <End Role="Reports" Type="Self.Report" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Exam_List">
+        <PropertyRef Name="exam_id" />
+      </Principal>
+      <Dependent Role="Reports">
+        <PropertyRef Name="exam_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Exam_ID1">
+    <End Role="Exam_List" Type="Self.Exam_List" Multiplicity="0..1" />
+    <End Role="Java_Sets" Type="Self.Java_Sets" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Exam_List">
+        <PropertyRef Name="exam_id" />
+      </Principal>
+      <Dependent Role="Java_Sets">
+        <PropertyRef Name="exam_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Exam_ID2">
+    <End Role="Exam_List" Type="Self.Exam_List" Multiplicity="0..1" />
+    <End Role="Sql_Sets" Type="Self.Sql_Sets" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Exam_List">
+        <PropertyRef Name="exam_id" />
+      </Principal>
+      <Dependent Role="Sql_Sets">
+        <PropertyRef Name="exam_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Exam_ID3">
+    <End Role="Exam_List" Type="Self.Exam_List" Multiplicity="0..1" />
+    <End Role="php_Sets" Type="Self.php_Sets" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Exam_List">
+        <PropertyRef Name="exam_id" />
+      </Principal>
+      <Dependent Role="php_Sets">
+        <PropertyRef Name="exam_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Exam_ID5">
+    <End Role="Exam_List" Type="Self.Exam_List" Multiplicity="0..1" />
+    <End Role="Python_Sets" Type="Self.Python_Sets" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Exam_List">
+        <PropertyRef Name="exam_id" />
+      </Principal>
+      <Dependent Role="Python_Sets">
+        <PropertyRef Name="exam_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="User_ID">
+    <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Reports" Type="Self.Report" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="Reports">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="OnlineExamEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Admins" EntityType="Self.Admin" />
+    <EntitySet Name="c_cplus_Sets" EntityType="Self.c_cplus_Sets" />
+    <EntitySet Name="Csharp_Dotnet_Sets" EntityType="Self.Csharp_Dotnet_Sets" />
+    <EntitySet Name="Exam_List" EntityType="Self.Exam_List" />
+    <EntitySet Name="Java_Sets" EntityType="Self.Java_Sets" />
+    <EntitySet Name="php_Sets" EntityType="Self.php_Sets" />
+    <EntitySet Name="Python_Sets" EntityType="Self.Python_Sets" />
+    <EntitySet Name="Reports" EntityType="Self.Report" />
+    <EntitySet Name="Sql_Sets" EntityType="Self.Sql_Sets" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="Exam_ID4" Association="Self.Exam_ID4">
+      <End Role="Exam_List" EntitySet="Exam_List" />
+      <End Role="c_cplus_Sets" EntitySet="c_cplus_Sets" />
+    </AssociationSet>
+    <AssociationSet Name="Exam_ID6" Association="Self.Exam_ID6">
+      <End Role="Exam_List" EntitySet="Exam_List" />
+      <End Role="Csharp_Dotnet_Sets" EntitySet="Csharp_Dotnet_Sets" />
+    </AssociationSet>
+    <AssociationSet Name="Exam_ID" Association="Self.Exam_ID">
+      <End Role="Exam_List" EntitySet="Exam_List" />
+      <End Role="Reports" EntitySet="Reports" />
+    </AssociationSet>
+    <AssociationSet Name="Exam_ID1" Association="Self.Exam_ID1">
+      <End Role="Exam_List" EntitySet="Exam_List" />
+      <End Role="Java_Sets" EntitySet="Java_Sets" />
+    </AssociationSet>
+    <AssociationSet Name="Exam_ID2" Association="Self.Exam_ID2">
+      <End Role="Exam_List" EntitySet="Exam_List" />
+      <End Role="Sql_Sets" EntitySet="Sql_Sets" />
+    </AssociationSet>
+    <AssociationSet Name="Exam_ID3" Association="Self.Exam_ID3">
+      <End Role="Exam_List" EntitySet="Exam_List" />
+      <End Role="php_Sets" EntitySet="php_Sets" />
+    </AssociationSet>
+    <AssociationSet Name="Exam_ID5" Association="Self.Exam_ID5">
+      <End Role="Exam_List" EntitySet="Exam_List" />
+      <End Role="Python_Sets" EntitySet="Python_Sets" />
+    </AssociationSet>
+    <AssociationSet Name="User_ID" Association="Self.User_ID">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Reports" EntitySet="Reports" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

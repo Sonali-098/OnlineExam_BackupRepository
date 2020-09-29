@@ -1,0 +1,6 @@
+F:\NewGladiator\OnlineExam\GladiatorBackend\FileReader\bin\Debug\FileReader.dll
+F:\NewGladiator\OnlineExam\GladiatorBackend\FileReader\bin\Debug\FileReader.pdb
+F:\NewGladiator\OnlineExam\GladiatorBackend\FileReader\obj\Debug\FileReader.csprojAssemblyReference.cache
+F:\NewGladiator\OnlineExam\GladiatorBackend\FileReader\obj\Debug\FileReader.csproj.CoreCompileInputs.cache
+F:\NewGladiator\OnlineExam\GladiatorBackend\FileReader\obj\Debug\FileReader.dll
+F:\NewGladiator\OnlineExam\GladiatorBackend\FileReader\obj\Debug\FileReader.pdb

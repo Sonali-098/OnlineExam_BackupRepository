@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OnlineExamModelStoreContainer" CdmEntityContainer="OnlineExamEntities">
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="OnlineExamModel.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="admin_id" ColumnName="admin_id" />
+          <ScalarProperty Name="full_name" ColumnName="full_name" />
+          <ScalarProperty Name="email_id" ColumnName="email_id" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="c_cplus_Sets">
+      <EntityTypeMapping TypeName="OnlineExamModel.c_cplus_Sets">
+        <MappingFragment StoreEntitySet="c_cplus_Sets">
+          <ScalarProperty Name="table_name" ColumnName="table_name" />
+          <ScalarProperty Name="exam_id" ColumnName="exam_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Csharp_Dotnet_Sets">
+      <EntityTypeMapping TypeName="OnlineExamModel.Csharp_Dotnet_Sets">
+        <MappingFragment StoreEntitySet="Csharp_Dotnet_Sets">
+          <ScalarProperty Name="table_name" ColumnName="table_name" />
+          <ScalarProperty Name="exam_id" ColumnName="exam_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Exam_List">
+      <EntityTypeMapping TypeName="OnlineExamModel.Exam_List">
+        <MappingFragment StoreEntitySet="Exam_List">
+          <ScalarProperty Name="exam_id" ColumnName="exam_id" />
+          <ScalarProperty Name="exam_name" ColumnName="exam_name" />
+          <ScalarProperty Name="exam_set_counts" ColumnName="exam_set_counts" />
+          <ScalarProperty Name="total_marks" ColumnName="total_marks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Java_Sets">
+      <EntityTypeMapping TypeName="OnlineExamModel.Java_Sets">
+        <MappingFragment StoreEntitySet="Java_Sets">
+          <ScalarProperty Name="table_name" ColumnName="table_name" />
+          <ScalarProperty Name="exam_id" ColumnName="exam_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="php_Sets">
+      <EntityTypeMapping TypeName="OnlineExamModel.php_Sets">
+        <MappingFragment StoreEntitySet="php_Sets">
+          <ScalarProperty Name="table_name" ColumnName="table_name" />
+          <ScalarProperty Name="exam_id" ColumnName="exam_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Python_Sets">
+      <EntityTypeMapping TypeName="OnlineExamModel.Python_Sets">
+        <MappingFragment StoreEntitySet="Python_Sets">
+          <ScalarProperty Name="table_name" ColumnName="table_name" />
+          <ScalarProperty Name="exam_id" ColumnName="exam_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reports">
+      <EntityTypeMapping TypeName="OnlineExamModel.Report">
+        <MappingFragment StoreEntitySet="Reports">
+          <ScalarProperty Name="report_id" ColumnName="report_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="exam_id" ColumnName="exam_id" />
+          <ScalarProperty Name="exam_name" ColumnName="exam_name" />
+          <ScalarProperty Name="level1_score" ColumnName="level1_score" />
+          <ScalarProperty Name="level2_score" ColumnName="level2_score" />
+          <ScalarProperty Name="level3_score" ColumnName="level3_score" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sql_Sets">
+      <EntityTypeMapping TypeName="OnlineExamModel.Sql_Sets">
+        <MappingFragment StoreEntitySet="Sql_Sets">
+          <ScalarProperty Name="table_name" ColumnName="table_name" />
+          <ScalarProperty Name="exam_id" ColumnName="exam_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="OnlineExamModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="full_name" ColumnName="full_name" />
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+          <ScalarProperty Name="email_id" ColumnName="email_id" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="dob" ColumnName="dob" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="qualification" ColumnName="qualification" />
+          <ScalarProperty Name="yoc" ColumnName="yoc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
